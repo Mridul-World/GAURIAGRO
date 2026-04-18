@@ -1,0 +1,274 @@
+/* ─── Intro Container ──────────────────────────────────── */
+.intro-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+/* ─── Film Grain ───────────────────────────────────────── */
+.film-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  animation: grainShift 0.3s steps(3) infinite;
+}
+
+@keyframes grainShift {
+  0% { transform: translate(0, 0); }
+  33% { transform: translate(-2px, 1px); }
+  66% { transform: translate(1px, -1px); }
+  100% { transform: translate(-1px, 2px); }
+}
+
+/* ─── Vignette ─────────────────────────────────────────── */
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.6) 100%);
+}
+
+/* ─── Progress Bar ─────────────────────────────────────── */
+.intro-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  z-index: 60;
+}
+
+.intro-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #C0392B, #C9A84C);
+  transition: width 0.3s ease;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 12px rgba(201,168,76,0.5);
+}
+
+/* ─── Skip Button ──────────────────────────────────────── */
+.skip-btn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 60;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.5);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.skip-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.9);
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* ─── Scene Base ───────────────────────────────────────── */
+.intro-scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scene-bg {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform, opacity;
+}
+
+.scene-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+/* ─── Scene Text ───────────────────────────────────────── */
+.scene-text {
+  color: #ffffff;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.scene-text-serif {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.7);
+}
+
+/* ─── Light Leaks ──────────────────────────────────────── */
+.light-leak {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.light-leak-1 {
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(255,220,130,0.5) 0%, transparent 70%);
+  opacity: 0;
+}
+
+.light-leak-gold {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.4) 0%, rgba(192,57,43,0.1) 40%, transparent 70%);
+  opacity: 0;
+  will-change: transform, opacity;
+  z-index: 4;
+}
+
+/* ─── Scan Line ────────────────────────────────────────── */
+.scan-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent);
+  z-index: 15;
+  box-shadow: 0 0 20px rgba(201,168,76,0.3), 0 0 60px rgba(201,168,76,0.1);
+}
+
+/* ─── Scene 2 Overlay ──────────────────────────────────── */
+.scene-2 .scene-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%);
+}
+
+/* ─── Scene 1 Overlay ──────────────────────────────────── */
+.scene-1 .scene-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%);
+}
+
+/* ─── Scene 3 Overlay (dims bg image so logo pops) ─── */
+.scene-dark-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 3;
+}
+
+/* ─── Scene 3: Brand Reveal ────────────────────────── */
+.scene-3-bg {
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 100%) !important;
+}
+
+.brand-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.brand-logo-icon {
+  opacity: 0;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 30px rgba(201,168,76,0.4));
+  will-change: transform, opacity;
+}
+
+.brand-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  opacity: 0;
+  will-change: transform, opacity, letter-spacing;
+  text-shadow: 0 0 40px rgba(255,255,255,0.1);
+}
+
+.brand-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: #C9A84C;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.brand-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+  margin: 0.75rem 0;
+}
+
+.brand-subtitle {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1px;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ─── Mobile ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .skip-btn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.65rem;
+    padding: 0.5rem 1rem;
+  }
+  .brand-logo-icon svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ─── Morph Grain ──────────────────────────────────────── */
+.morph-grain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  will-change: transform, opacity, filter;
+}

@@ -1,0 +1,318 @@
+/* ── Director Section ──────────────────────────────────── */
+.director-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.director-img-col { position: relative; }
+
+.director-img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top;
+}
+
+.director-img-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: -1.5rem;
+  background: var(--color-red);
+  color: var(--color-white);
+  padding: 0.75rem 1.25rem;
+  border-radius: 3px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-red);
+}
+
+.director-text-col { padding-top: 1rem; }
+
+.quote-bar { margin: 1.5rem 0; }
+.quote-icon { color: var(--color-gold); opacity: 0.6; }
+
+.director-quote {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--color-body);
+  font-style: italic;
+  margin-bottom: 2.5rem;
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1.5rem;
+}
+
+.director-sig {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sig-line {
+  width: 50px;
+  height: 2px;
+  background: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.sig-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.sig-role {
+  font-size: 0.85rem;
+  color: var(--color-red);
+  font-weight: 500;
+}
+
+/* ── Values ────────────────────────────────────────────── */
+.values-grid { gap: 1.5rem; }
+
+.value-card {
+  padding: 2.5rem 1.75rem;
+  text-align: center;
+}
+
+.value-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.value-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-dark);
+}
+
+.value-desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-body);
+}
+
+/* ── Team ──────────────────────────────────────────────── */
+.team-grid { gap: 2rem; }
+
+.team-card { overflow: hidden; }
+
+.team-img-wrap {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.team-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s ease;
+}
+.team-card:hover .team-img { transform: scale(1.06); }
+
+.team-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(192,57,43,0.8);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.team-card:hover .team-hover-overlay { opacity: 1; }
+
+.team-body {
+  padding: 1.5rem;
+  border-top: 3px solid var(--color-gold);
+  text-align: left;
+}
+
+.team-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0.25rem;
+}
+
+.team-role {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-red);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Testimonials ──────────────────────────────────────── */
+.testimonials-section { background: var(--color-navy); padding: 100px 0; }
+.testimonials-section .section-tag { color: var(--color-gold); }
+.testimonials-section .section-heading { color: var(--color-white); }
+
+.testimonials-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 4rem 0 2rem;
+}
+
+.testimonials-track-outer {
+  flex: 1;
+  overflow: hidden;
+}
+
+.testimonials-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.testi-slide {
+  min-width: 100%;
+}
+
+.testi-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 3px solid var(--color-gold);
+  border-radius: 4px;
+  padding: 3rem;
+}
+
+.testi-stars {
+  color: var(--color-gold);
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.testi-text {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.75);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testi-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.testi-role {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.testi-location {
+  font-size: 0.78rem;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.2rem;
+}
+
+.testi-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.testi-arrow:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-dark);
+}
+
+.testi-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.testi-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.testi-dot.active {
+  background: var(--color-gold);
+  width: 28px;
+  border-radius: 5px;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .director-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .director-img-badge { left: 0; }
+}
+
+@media (max-width: 640px) {
+  .testi-card { padding: 2rem 1.5rem; }
+  .testi-arrow { display: none; }
+}
+
+/* ── Cinematic Styling ───────────────────────────────────── */
+.cinematic-section-bg {
+  background: #080808;
+}
+
+.cinematic-values-bg {
+  background: #0a0a0f;
+}
+
+.cinematic-team-bg {
+  background: #0c0c14;
+}
+
+.cinematic-glass-card {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-left: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.cinematic-glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(201,168,76,0.1);
+  border-color: rgba(201,168,76,0.3);
+}
+
+.team-body {
+  border-top: 3px solid rgba(201,168,76,0.6);
+  background: transparent;
+}

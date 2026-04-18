@@ -1,0 +1,317 @@
+/* ── Cinematic Hero ──────────────────────────────────────── */
+.cinematic-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: #000;
+}
+
+.hero-parallax-bg {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: 1;
+}
+
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(10,10,15,0.8) 100%),
+              linear-gradient(to bottom, rgba(10,10,15,0.4) 0%, #0a0a0f 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.hero-text-box {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+}
+
+.hero-heading {
+  font-family: 'Georgia', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-white);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.hero-sub {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 3rem;
+  line-height: 1.8;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* ── Floating Grains ─────────────────────────────────────── */
+.floating-grain {
+  position: absolute;
+  width: 15px;
+  height: 40px;
+  background: rgba(201,168,76,0.3);
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: 5;
+  will-change: transform;
+}
+
+.grain-1 { top: 30%; left: 15%; width: 20px; height: 50px; opacity: 0.5; }
+.grain-2 { top: 60%; right: 20%; width: 12px; height: 35px; opacity: 0.3; }
+.grain-3 { bottom: 20%; left: 25%; width: 25px; height: 60px; opacity: 0.2; }
+.grain-4 { top: 20%; right: 10%; width: 10px; height: 30px; opacity: 0.6; }
+
+/* ── Liquid Crystal Showcase ─────────────────────────────── */
+.crystal-section {
+  position: relative;
+  height: 80vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0f;
+  overflow: hidden;
+}
+
+.crystal-layer-back {
+  position: absolute;
+  inset: -100px;
+  background: radial-gradient(circle at 50% 50%, rgba(201,168,76,0.15) 0%, transparent 60%);
+  filter: blur(40px);
+  will-change: transform;
+}
+
+.crystal-layer-front {
+  position: absolute;
+  bottom: -200px;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0,50 Q25,20 50,50 T100,50" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="0.5"/></svg>') repeat-x;
+  background-size: cover;
+  opacity: 0.5;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.crystal-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 800px;
+}
+
+.crystal-heading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  background: linear-gradient(180deg, #ffffff 0%, #C9A84C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.crystal-sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.9;
+}
+
+/* ── Floating Features ───────────────────────────────────── */
+.floating-features {
+  padding: 5rem 0 10rem;
+  background: #0a0a0f;
+  position: relative;
+  z-index: 20;
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-left: 1px solid rgba(255,255,255,0.1);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.glass-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(201,168,76,0.1);
+  border-color: rgba(201,168,76,0.3);
+}
+
+.glass-icon {
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(201,168,76,0.5));
+}
+
+.glass-title {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.glass-desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+}
+
+/* ── Immersive Products Preview ──────────────────────────── */
+.immersive-products {
+  position: relative;
+  padding: 8rem 0;
+  background: #000;
+  overflow: hidden;
+}
+
+.immersive-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: grayscale(80%) contrast(120%);
+  opacity: 0.4;
+}
+
+.immersive-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0a0a0f 0%, transparent 50%, #0a0a0f 100%);
+}
+
+.immersive-grid {
+  position: relative;
+  z-index: 10;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.hologram-card {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  group: hover;
+}
+
+.hologram-img-wrap {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+  transition: all 0.5s ease;
+}
+
+.hologram-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  filter: sepia(30%) hue-rotate(330deg) saturate(150%);
+  transition: all 0.5s ease;
+}
+
+.hologram-scanline {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.4), transparent);
+  transition: top 0.5s ease;
+  opacity: 0;
+}
+
+.hologram-card:hover .hologram-img-wrap {
+  box-shadow: 0 0 30px rgba(201,168,76,0.3), 0 0 0 1px rgba(201,168,76,0.5);
+}
+
+.hologram-card:hover .hologram-img {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.05);
+}
+
+.hologram-card:hover .hologram-scanline {
+  top: 200%;
+  opacity: 1;
+  transition: top 1.5s linear infinite;
+}
+
+.hologram-title {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.hologram-link {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero-heading { font-size: clamp(2.5rem, 5vw, 4rem); }
+}
+
+@media (max-width: 768px) {
+  .glass-card { padding: 2rem 1.5rem; }
+  .immersive-grid { gap: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-actions { flex-direction: column; }
+  .crystal-heading { font-size: 2rem; }
+}
